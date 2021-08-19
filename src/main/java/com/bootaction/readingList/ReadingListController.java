@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-//crear un controller con base /readingList que tenga 2 enpoints
-// 1 get /<readername> retorna los libros del <readername> en el parametro books del model
-// 2 post /<readername> con book guarda el libro en db local y redirecciona a /readingList/<reader>
-//probar llendo a la pagina http://localhost:8080/readingList/sebas
+//crear un  clase que tenga endpoint  /readingList  base que tenga 2 enpoints
+// 1 get /<readername> coloca los libros en el model y retorna el string readingList
+// 2 post /<readername> con book guarda el libro en db local y retorna el string "redirect:/readingList/{reader}"
+//probar llendo a la pagina http://localhost:8080/readingList/sebas y agregando libros
 @Controller
 @RequestMapping("/readingList")
 public class ReadingListController {
