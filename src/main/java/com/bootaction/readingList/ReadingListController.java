@@ -2,6 +2,7 @@ package com.bootaction.readingList;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,8 @@ import java.util.List;
 @RequestMapping("/readingList")
 public class ReadingListController {
 
+    private static final String reader="sebas";
+
     private ReadingListRepository readingListRepository;
 
     @Autowired
@@ -25,9 +28,9 @@ public class ReadingListController {
         this.readingListRepository=readingListRepository;
     }
 
-    @RequestMapping(value="/{reader}",method = RequestMethod.GET)
+
+    @RequestMapping(method = RequestMethod.GET)
     public String readerBooks(
-            @PathVariable("reader") String reader,
             Model model
     ){
         List<Book> readingList = readingListRepository.findByReader(reader);
@@ -37,12 +40,12 @@ public class ReadingListController {
         return "readingList";
     }
 
-    @RequestMapping(value="/{reader}", method = RequestMethod.POST)
+    @RequestMapping(method = RequestMethod.POST)
     public String addToReadingList(
-            @PathVariable("reader") String reader, Book book){
+            Book book){
         book.setReader(reader);
         readingListRepository.save(book);
-        return "redirect:/readingList/{reader}";
+        return "redirect:/readingList";
     }
 
 }
