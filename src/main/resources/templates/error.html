@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>Oops:</title>
+        <link rel="stylesheet" th:href="@{/style.css}"></link>
+    </head>
+    <div class="errroPage">
+        <span class="oops"> Oops!</span><br/>
+        <img th:src="@{/MissingPage.png}"></img>
+        <p>There seem to be a problem with the page you requested
+            (<span th:text="${path}"></span></p>
+        <p th:text="${'Details: '+ message}"></p>
+    </div>
+</html>

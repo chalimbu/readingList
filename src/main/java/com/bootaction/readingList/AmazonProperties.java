@@ -8,8 +8,12 @@ import org.springframework.stereotype.Component;
 public class AmazonProperties {
     private String associateId;
 
-    public String getAssociateId(){
+    public String getAssociateId() {
         return associateId;
+    }
+
+    public void setAssociateId(String associateId) {
+        this.associateId = associateId;
     }
 
 }
